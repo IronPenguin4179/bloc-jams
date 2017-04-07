@@ -28,6 +28,21 @@ var albumMarconi = {
     ]
 };
 
+var albumBaloney = {
+    title: 'Worst Sandwhich',
+    artist: 'The Baloniest',
+    label: 'With Cheese',
+    year: '2017',
+    albumArtUrl: 'assets/images/album_covers/14.png',
+    songs: [
+        { title: 'Lettuce', duration: '1:01' },
+        { title: 'Mayo', duration: '5:01' },
+        { title: 'Tomato', duration: '3:21'},
+        { title: 'Mustard', duration: '3:14' },
+        { title: 'Pickles', duration: '2:15'}
+    ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
     var template = 
        '<tr class="album-view-song-item">'
@@ -50,7 +65,7 @@ var setCurrentAlbum = function(album) {
     albumTitle.firstChild.nodeValue = album.title;
     albumArtist.firstChild.nodeValue = album.artist;
     albumReleaseInfo.firstChild.nodeValue = album.year + ' ' +album.label;
-    albumIamge.setAttribute('src',album.albumArtUrl);
+    albumImage.setAttribute('src',album.albumArtUrl);
 
     albumSongList.innerHTML = '';
 
@@ -62,3 +77,18 @@ var setCurrentAlbum = function(album) {
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
 };
+// Assignment changes
+var albumNum = 0;
+var clickEvent = function() {
+    albumNum++;
+    if (albumNum === 0) {setCurrentAlbum(albumPicasso);}
+    else if (albumNum === 1) {setCurrentAlbum(albumMarconi);}
+    else if (albumNum === 2) {setCurrentAlbum(albumBaloney);}
+    else {
+        albumNum = 0; 
+        setCurrentAlbum(albumPicasso); 
+    };
+}
+
+var albumCover = document.getElementById('this');
+albumCover.addEventListener('click', clickEvent);
