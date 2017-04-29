@@ -42,8 +42,13 @@ var createSongRow = function(songNumber, songName, songLength) {
     	}
 	    if (currentlyPlayingSongNumber !== songNumber) {
 		    $(this).html(pauseButtonTemplate);
+<<<<<<< HEAD
 		    setSong(songNumber);
             currentSoundFile.play();
+=======
+		    currentlyPlayingSongNumber = songNumber;
+            currentSongFromAlbum = currentAlbum.songs[songNumber-1].title;
+>>>>>>> checkpoint-19-jquerynextprevious
             updatePlayerBarSong();
     	} else if (currentlyPlayingSongNumber === songNumber) {
 	    	$(this).html(playButtonTemplate);
@@ -76,8 +81,6 @@ var createSongRow = function(songNumber, songName, songLength) {
         if (songNumber !== currentlyPlayingSongNumber) {
             songNumberCell.html(songNumber);
         }
-        console.log("songNumber type is " + typeof songNumber + "\n and currentlyPlayingSongNumber type is " + typeof currentlyPlayingSongNumber);
-
     };
     $row.hover(onHover, offHover);
     $row.find('.song-item-number').click(clickHandler);
@@ -169,9 +172,9 @@ var previousSong = function() {
 };
 
 var updatePlayerBarSong = function() {
-    $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum+" - "+currentAlbum.artist)
-    $('.currently-playing .artist-name').text(currentAlbum.artist)
-    $('.currently-playing .song-name').text(currentSongFromAlbum)
+    $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum+" - "+currentAlbum.artist);
+    $('.currently-playing .artist-name').text(currentAlbum.artist);
+    $('.currently-playing .song-name').text(currentSongFromAlbum);
     $('.main-controls .play-pause').html(playerBarPauseButton);
 }
 
