@@ -53,9 +53,9 @@ var createSongRow = function(songNumber, songName, songLength) {
 		    currentlyPlayingSongNumber = songNumber;
             currentSongFromAlbum = currentAlbum.songs[songNumber-1];
             var $volumeFill = $('.volume .fill');
-+           var $volumeThumb = $('.volume .thumb');
-+           $volumeFill.width(currentVolume + '%');
-+           $volumeThumb.css({left: currentVolume + '%'});
+            var $volumeThumb = $('.volume .thumb');
+            $volumeFill.width(currentVolume + '%');
+            $volumeThumb.css({left: currentVolume + '%'});
 
 		    $(this).html(pauseButtonTemplate);
             updatePlayerBarSong();
